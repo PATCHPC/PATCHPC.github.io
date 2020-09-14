@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PC's BLOG - PC的技术博客</title><meta name="description"><meta name="author" content="PC"><meta name="copyright" content="PC"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.jpeg"><link rel="canonical" href="http://yoursite.com/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="PC's BLOG"><meta property="og:url" content="http://yoursite.com/"><meta property="og:site_name" content="PC's BLOG"><meta property="og:description"><meta property="og:image" content="http://yoursite.com/img/avatar.jpeg"><meta property="article:published_time" content="2020-09-14T06:25:51.824Z"><meta property="article:modified_time" content="2020-09-14T06:25:51.824Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: {"languages":{"author":"作者: PC","link":"链接: ","source":"来源: PC's BLOG","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">10</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/default_cover.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">PC's BLOG</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">PC's BLOG</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/09/14/hexo-manage/" title="hexo manage">     <img class="post_bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo manage"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/14/hexo-manage/" title="hexo manage">hexo manage</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-09-14 14:20:56"><i class="far fa-calendar-alt"></i>2020-09-14</time></div><div class="content">解决无法deploy远程更新的问题删除/.deploy.git/ 目录下的 .git 文件
+用命令行重新git init
+再重新deploy即可
+更新于2020/9/14
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/09/14/Linux-Operate/" title="Linux_Operate">     <img class="post_bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux_Operate"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/14/Linux-Operate/" title="Linux_Operate">Linux_Operate</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-09-14 13:32:06"><i class="far fa-calendar-alt"></i>2020-09-14</time></div><div class="content">增加新的用户12345&#x2F;&#x2F; 添加用户useradd newuser&#x2F;&#x2F; 设置密码passwd newuser
+
+123&#x2F;&#x2F;查看进程ps -elf
+
+
+ssh连接一段时间后自动断开问题描述ssh连接过了一段时间自动断开，但是查看进程并没有出现某一进程大量占用资源的情况。
+解决方案https://blog.csdn.net/developersq/article/details/83037243
+最近使用putty的时候老是提示 network error software caused connection abort 网络错误软件造成连接中断
+下面给出解决putty连接中断办法：
+1.在linux服务器端设置：
+vi /etc/ssh/sshd_config
+找到 TCPKeepAlive yes把前面的#去掉
+找到ClientAliveInterval 参数去掉前面的#
+ClientAliveInterval 60  把后面的0改成60
+ClientAliveInterval指定了服务器端向客户端请求消息的时间间隔, 默认是 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/C-Learning/" title="C++ 学习笔记">     <img class="post_bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ 学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/C-Learning/" title="C++ 学习笔记">C++ 学习笔记</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-31 08:23:55"><i class="far fa-calendar-alt"></i>2020-08-31</time></div><div class="content">关于类函数加const的情况今天看到这样一行代码，在括号前加const。一般来说在函数前加const的情况会比较多。查了一下，说是
+
+c++ 函数前面和后面 使用const 的作用：
+
+前面使用const 表示返回值为const
+后面加 const表示函数不可以修改class的成员
+
+
+12string name() const &#123; return _name; &#125;
+
+来源：https://www.cnblogs.com/YZFHKMS-X/p/11756404.html
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/17/html-2/" title="html-2">     <img class="post_bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="html-2"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/17/html-2/" title="html-2">html-2</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-17 11:12:34"><i class="far fa-calendar-alt"></i>2020-08-17</time></div><div class="content">关于置换元素和非置换元素今天遇到了一个问题：在css文件里给input标签设计样式但不起作用。经过一番查证才知道是因为这是一个html的置换元素。
+什么是置换元素呢可以参考这一篇详解Html替换元素与非替换元素
+总结一下
+其中有类特殊的元素：如img|input|select|textarea|button|label等，他们被称为可置换元素（Replaced element）。他们区别一般inline元素（相对而言，称non-replaced element）是：这些元素拥有内在尺寸(intrinsic dimensions),他们可以设置width/height属性。他们的性质同设置了display:inline-block的元素一致。
+但最后需明确的一点是：第一：html（行内元素+块状元素）分置换元素与非置换元素。
+第二：padding、margin对置换元素与非置换元素的影响不同。
+第三：对于块状非置换元素与行内非置换元素，padding与margin的影响不一样。块状置换元素与行内置换元素的性质一样。
+居中不用flex水平居中：对于子元素，使用这个：margin:0 aut ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/07/2020-8-7/" title="在乌镇的第一天">     <img class="post_bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在乌镇的第一天"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/07/2020-8-7/" title="在乌镇的第一天">在乌镇的第一天</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-07 22:11:07"><i class="far fa-calendar-alt"></i>2020-08-07</time></div><div class="content">借个地儿昨天是我的生日，对的，我还鸽掉了更新。
+今天到了乌镇。Actually是第二次来了。上次还是初中，可以清楚的记得住某大佬买了一把大宝剑和黄酒然后被没收！
+其实一路上比较平平无奇，毕竟乌镇都看过了，水镇都这个样子233，比较有趣的是，门口有个北京水北古镇的广告，物价涨了不少，兴建了不少高级酒馆。
+乌镇的酒很不行。我以为会是那种浑浊的，香香的米酒。结果和黄酒一样……一点也不好喝。
+之后去酒吧，总算挑战了长岛冰茶。但估计是店主觉得我们是学生，所以度数不是那么的高。但是还是有一点点上头hhh
+本来说的是一个清吧，但是驻唱歌手唱情歌唱的实在是太大声啦！！！震耳欲聋，让我们的耳膜也受到了撕心裂肺的折磨……所以我们喝完酒了以后就撤了。
+说是晚上有个活动，就急急忙忙的把大家都赶回了酒店。（其实我当时就有所预感）
+大家给我过了个生日。
+作为一个生日在暑假的可怜孩子，生日一般来说都是和几个好朋友一起过，有的时候回老家or去旅游就只能在路上过。
+最惨的有次，是第一次去厦门的时候。那次是和爸妈一起去的。当时夏日炎炎，仿佛要和万石植物园的仙人掌融为一体……结果在我爸妈的威逼利诱下，用一根棒冰敷衍了我。
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/03/jQuery_mote_1/" title="jQuery_note_1">     <img class="post_bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="jQuery_note_1"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/03/jQuery_mote_1/" title="jQuery_note_1">jQuery_note_1</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-03 21:34:36"><i class="far fa-calendar-alt"></i>2020-08-03</time></div><div class="content">jQuery的两种写法12345678910$(document().ready(function()&#123;    // 此处写jQuery代码&#125;))// 和省略形式$(function()&#123;    // 此处写jQuery代码&#125;)
+
+选择器123456$(function()&#123;    $("button").click(function()&#123;        $("p").hide();    &#125;)&#125;)</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/03/personnal%20navigator_2/" title="个人导航2">     <img class="post_bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人导航2"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/03/personnal%20navigator_2/" title="个人导航2">个人导航2</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-03 08:47:44"><i class="far fa-calendar-alt"></i>2020-08-03</time></div><div class="content">关于几个核心功能的实现在上一篇中提到了“自动发布灵感”的功能，现在又想进行一些追加描述。
+实施方案有三种
+
+使用wordpress邮箱服务：难点在阿里云私人服务器不提供邮箱服务
+
+使用后端代码写一个脚本，直接创建文章发布
+
+不发在wordpress邮箱上，发在notion里
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/01/personnal%20navifator_1/" title="个人首页导航">     <img class="post_bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人首页导航"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/01/personnal%20navifator_1/" title="个人首页导航">个人首页导航</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-01 21:30:30"><i class="far fa-calendar-alt"></i>2020-08-01</time></div><div class="content">先讲讲项目初衷主要是想做一个可以练手的前端项目，看来看去别的项目都是模仿一些比较无趣的内容，比如直接模仿一个网页的ui。想来想不如搞一个自己的网址导航吧。
+我的需求我个人没有什么工作routine，所以希望网址导航本身可以多加一些信息获取的接口。
+此外，考虑到个人非常钟爱Bing桌面，希望可以调用Bing每日桌面的api。
+信息发布方面，因为有时候会有eureka时刻，因此希望可以有一个灵感发布的平台，最好可以直接发布到我的wordpress博客上去。
+在整体风格方面，我希望是一个暗色的风格，而且足够简洁。
+对了，再加一点。上面要配置搜索引擎并能自动读取我的网络状态：如果连了梯子就用google搜索，如果没梯子就用百度。
+关于信息获取
+微博热搜抓取（如果能做到过滤娱乐信息最好）
+
+RSS订阅抓取（能做到简单预览）
+
+播客更新提醒
+
+博客更新提醒
+
+
+项目进度-2020-08-01今天简单的设计了一个项目原型，大致是这样
+
+大概是主界面是用户头像（？但其实感觉这个设计没有必要，但总感觉空空的想加点东西）上拉tab会造成背景模糊，呈现信息表格，左侧悬浮tab拉出可以发布灵感。
+
+背景模糊差 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/01/HTML%E5%A4%8D%E4%B9%A0/" title="HTML复习">     <img class="post_bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTML复习"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/01/HTML%E5%A4%8D%E4%B9%A0/" title="HTML复习">HTML复习</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-01 11:20:14"><i class="far fa-calendar-alt"></i>2020-08-01</time></div><div class="content">关于如何在markdown中插入html的代码12345678&lt;center style="color:red;"&gt;我就是要居中！&lt;/center&gt;&lt;div style="color:blue;"&gt;  &lt;h1 style="font-size:1.6em;"&gt;我是一级标题&lt;/h1&gt;  &lt;h2 style="font-size:1.4em;"&gt;我是二级标题&lt;/h2&gt;  &lt;h3 style="font-size:1.2em;"&gt;我是三级标题&lt;/h3&gt;  &lt;h4 style="font-size:1.0em;"&gt;我是四级标题&lt;/h4&gt;  &lt;p style="font-size:0.8em;"&gt;我是正文段落&lt;/p&gt;&lt;/div&gt;
+
+
+我就是要居中！
+
+  我是一级标题
+  我是二级标题
+  我是三级标题
+  我是四级标题
+  我是正文段落
+
+
+
+HTML属性属性
+
+class classname 规定元素的类名（classname ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/30/%E6%9D%A5%E6%90%9E%E4%B8%80%E4%B8%AA%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/" title="来搞一个技术博客">     <img class="post_bg" data-src="http://blog.frostfires.live/wp-content/uploads/2020/07/bing.lylares.com-2020-07-06-1080p-1024x576.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="来搞一个技术博客"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/30/%E6%9D%A5%E6%90%9E%E4%B8%80%E4%B8%AA%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/" title="来搞一个技术博客">来搞一个技术博客</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-30 16:40:04"><i class="far fa-calendar-alt"></i>2020-07-30</time></div><div class="content">先来听我唱个戏为啥要整技术博客当然是为了写点东西，以做复习……
+没错！是为了给自己看的
+为啥强调是技术博客呢因为还有其他的日常向博客http://blog.frostfires.live欢迎大家去作客。
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">PC</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">10</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">2</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2020/09/14/hexo-manage/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="hexo manage" alt="hexo manage"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/14/hexo-manage/" title="hexo manage">hexo manage</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-14 14:20:56">2020-09-14</time></div></a></div><div class="aside-recent-post"><a href="/2020/09/14/Linux-Operate/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Linux_Operate" alt="Linux_Operate"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/14/Linux-Operate/" title="Linux_Operate">Linux_Operate</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-14 13:32:06">2020-09-14</time></div></a></div><div class="aside-recent-post"><a href="/2020/08/31/C-Learning/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="C++ 学习笔记" alt="C++ 学习笔记"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/08/31/C-Learning/" title="C++ 学习笔记">C++ 学习笔记</div><time class="aside-post_meta post-meta__date" title="发表于 2020-08-31 08:23:55">2020-08-31</time></div></a></div><div class="aside-recent-post"><a href="/2020/08/17/html-2/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="html-2" alt="html-2"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/08/17/html-2/" title="html-2">html-2</div><time class="aside-post_meta post-meta__date" title="发表于 2020-08-17 11:12:34">2020-08-17</time></div></a></div><div class="aside-recent-post"><a href="/2020/08/07/2020-8-7/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="在乌镇的第一天" alt="在乌镇的第一天"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/08/07/2020-8-7/" title="在乌镇的第一天">在乌镇的第一天</div><time class="aside-post_meta post-meta__date" title="发表于 2020-08-07 22:11:07">2020-08-07</time></div></a></div></div></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/HTML/" style="font-size: 16px; color: #999">HTML</a> <a href="/tags/Linux/" style="font-size: 16px; color: #999">Linux</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">1</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">10</div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">2.5k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By PC</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">这是PC的博客👆</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
+if (subtitleEffect) { 
+  var typed = new Typed("#subtitle", {
+    strings: "Dont you cry tonight".split(","),
+    startDelay: 300,
+    typeSpeed: 150,
+    loop: true,
+    backSpeed: 50
+  })
+} else {
+  document.getElementById("subtitle").innerHTML = 'Dont you cry tonight'
+}</script></body></html>

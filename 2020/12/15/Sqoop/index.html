@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sqoop的使用 | PC's BLOG</title><meta name="description" content="sqoop实验环境：使用的是普开大数据实验管理系统上的虚拟机 虚拟机数量：3 系统版本：Centos 7.5 Hadoop版本： Apache Hadoop 2.7.3 实验描述：安装mysql与Sqoop，练习使用Sqoop将mysql数据表单导入HDFS分布式系统中 实验步骤： 下载安装mysql。首先通过wget指令获取rpm包    再通过vim指令安装。其中安装需要root权限    启"><meta name="author" content="PC"><meta name="copyright" content="PC"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.jpeg"><link rel="canonical" href="http://yoursite.com/2020/12/15/Sqoop/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="Sqoop的使用"><meta property="og:url" content="http://yoursite.com/2020/12/15/Sqoop/"><meta property="og:site_name" content="PC's BLOG"><meta property="og:description" content="sqoop实验环境：使用的是普开大数据实验管理系统上的虚拟机 虚拟机数量：3 系统版本：Centos 7.5 Hadoop版本： Apache Hadoop 2.7.3 实验描述：安装mysql与Sqoop，练习使用Sqoop将mysql数据表单导入HDFS分布式系统中 实验步骤： 下载安装mysql。首先通过wget指令获取rpm包    再通过vim指令安装。其中安装需要root权限    启"><meta property="og:image" content="http://yoursite.com/img/default_cover.jpg"><meta property="article:published_time" content="2020-12-14T17:00:58.000Z"><meta property="article:modified_time" content="2020-12-14T17:34:39.851Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sqoop的使用 | PC's BLOG</title><meta name="description" content="sqoop实验环境：使用的是普开大数据实验管理系统上的虚拟机 虚拟机数量：3 系统版本：Centos 7.5 Hadoop版本： Apache Hadoop 2.7.3 实验描述：安装mysql与Sqoop，练习使用Sqoop将mysql数据表单导入HDFS分布式系统中 实验步骤： 下载安装mysql。首先通过wget指令获取rpm包    再通过vim指令安装。其中安装需要root权限  ![U"><meta name="author" content="PC"><meta name="copyright" content="PC"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.jpeg"><link rel="canonical" href="http://yoursite.com/2020/12/15/Sqoop/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="Sqoop的使用"><meta property="og:url" content="http://yoursite.com/2020/12/15/Sqoop/"><meta property="og:site_name" content="PC's BLOG"><meta property="og:description" content="sqoop实验环境：使用的是普开大数据实验管理系统上的虚拟机 虚拟机数量：3 系统版本：Centos 7.5 Hadoop版本： Apache Hadoop 2.7.3 实验描述：安装mysql与Sqoop，练习使用Sqoop将mysql数据表单导入HDFS分布式系统中 实验步骤： 下载安装mysql。首先通过wget指令获取rpm包    再通过vim指令安装。其中安装需要root权限  ![U"><meta property="og:image" content="http://yoursite.com/img/default_cover.jpg"><meta property="article:published_time" content="2020-12-14T17:00:58.000Z"><meta property="article:modified_time" content="2020-12-15T02:28:07.827Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
   document.documentElement.setAttribute('data-theme', 'dark')
   if (document.querySelector('meta[name="theme-color"]') !== null) {
     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
@@ -95,7 +95,7 @@ if (autoChangeMode === '1') {
 .justified-gallery img{
   opacity: 1
 }
-</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">19</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sqoop"><span class="toc-number">1.</span> <span class="toc-text">sqoop</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实验环境："><span class="toc-number">1.1.</span> <span class="toc-text">实验环境：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验描述："><span class="toc-number">1.2.</span> <span class="toc-text">实验描述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验步骤："><span class="toc-number">1.3.</span> <span class="toc-text">实验步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验结果与分析："><span class="toc-number">1.4.</span> <span class="toc-text">实验结果与分析：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验结果："><span class="toc-number">1.4.1.</span> <span class="toc-text">实验结果：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遇到的问题："><span class="toc-number">1.4.2.</span> <span class="toc-text">遇到的问题：</span></a></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/default_cover.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">PC's BLOG</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Sqoop的使用</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-12-15 01:00:58"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-12-15</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-12-15 01:34:39"><i class="fas fa-history fa-fw"></i> 更新于 2020-12-15</span></time></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta__icon"></i><span>字数总计:</span><span class="word-count">806</span><span class="post-meta__separator">|</span><i class="far fa-clock fa-fw post-meta__icon"></i><span>阅读时长: 2 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="sqoop"><a href="#sqoop" class="headerlink" title="sqoop"></a>sqoop</h1><h2 id="实验环境："><a href="#实验环境：" class="headerlink" title="实验环境："></a>实验环境：</h2><p>使用的是普开大数据实验管理系统上的虚拟机</p>
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">19</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sqoop"><span class="toc-number">1.</span> <span class="toc-text">sqoop</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实验环境："><span class="toc-number">1.1.</span> <span class="toc-text">实验环境：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验描述："><span class="toc-number">1.2.</span> <span class="toc-text">实验描述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验步骤："><span class="toc-number">1.3.</span> <span class="toc-text">实验步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验结果与分析："><span class="toc-number">1.4.</span> <span class="toc-text">实验结果与分析：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验结果："><span class="toc-number">1.4.1.</span> <span class="toc-text">实验结果：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遇到的问题："><span class="toc-number">1.4.2.</span> <span class="toc-text">遇到的问题：</span></a></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/default_cover.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">PC's BLOG</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Sqoop的使用</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-12-15 01:00:58"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-12-15</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-12-15 10:28:07"><i class="fas fa-history fa-fw"></i> 更新于 2020-12-15</span></time></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta__icon"></i><span>字数总计:</span><span class="word-count">926</span><span class="post-meta__separator">|</span><i class="far fa-clock fa-fw post-meta__icon"></i><span>阅读时长: 3 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="sqoop"><a href="#sqoop" class="headerlink" title="sqoop"></a>sqoop</h1><h2 id="实验环境："><a href="#实验环境：" class="headerlink" title="实验环境："></a>实验环境：</h2><p>使用的是普开大数据实验管理系统上的虚拟机</p>
 <p>虚拟机数量：3</p>
 <p>系统版本：Centos 7.5</p>
 <p>Hadoop版本： Apache Hadoop 2.7.3</p>
@@ -103,31 +103,31 @@ if (autoChangeMode === '1') {
 <h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><ul>
 <li>下载安装mysql。首先通过wget指令获取rpm包</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled.png"></p>
+<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled.png" alt="Untitled.png"></p>
 <ul>
 <li>再通过vim指令安装。其中安装需要root权限</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%201.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%201.png"></p>
+<p>![Untitled 01.png](Untitled 01.png)</p>
 <ul>
 <li>启动MySQL服务</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%202.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%202.png"></p>
+<p>![Untitled 02.png](Untitled 02.png)</p>
 <ul>
 <li>获取初始的密码并以root权限登录</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%203.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%203.png"></p>
+<p>![Untitled 03.png](Untitled 03.png)</p>
 <ul>
 <li>成功进入MySQL后，进行重设密码，创建新数据库等操作</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%204.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%204.png"></p>
+<p>![Untitled 04.png](Untitled 04.png)</p>
 <ul>
 <li>创建表单并查看表单组成部分</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%205.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%205.png"></p>
+<p>![Untitled 05.png](Untitled 05.png)</p>
 <ul>
 <li>插入多条数据</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%206.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%206.png"></p>
+<p>![Untitled 06.png](Untitled 06.png)</p>
 <ul>
 <li>可以通过这一语句一次性插入多条数据：</li>
 </ul>
@@ -135,52 +135,52 @@ if (autoChangeMode === '1') {
 <ul>
 <li>下载安装sqoop并配置环境变量</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%207.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%207.png"></p>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%208.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%208.png"></p>
+<p>![Untitled 07.png](Untitled 07.png)</p>
+<p>![Untitled 08.png](Untitled 08.png)</p>
 <ul>
 <li>上传并解压配置数据库驱动</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%209.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%209.png"></p>
+<p>![Untitled 09.png](Untitled 09.png)</p>
 <ul>
 <li>使用sqoop查看mysql中数据库，不报错即连接成功</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2010.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2010.png"></p>
+<p>![Untitled 10.png](Untitled 010.png)</p>
 <ul>
 <li>重新进入zkpk，启动hdfs服务</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2011.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2011.png"></p>
+<p>![Untitled 11.png](Untitled 011.png)</p>
 <ul>
 <li>可以看到各个结点都被打开了，并列出了相应的log文件所在目录</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2012.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2012.png"></p>
+<p>![Untitled 12.png](Untitled 012.png)</p>
 <ul>
 <li>再导入数据库数据</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2013.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2013.png"></p>
+<p>![Untitled 13.png](Untitled 013.png)</p>
 <ul>
 <li>正巧有四组数据被导入了</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2014.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2014.png"></p>
+<p>![Untitled 14.png](Untitled 014.png)</p>
 <ul>
 <li>查看一下数据内容，已成功</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2015.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2015.png"></p>
+<p>![Untitled 15.png](Untitled 015.png)</p>
 <ul>
 <li>在slave机上查看数据，也已导入</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2016.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2016.png"></p>
+<p>![Untitled 16.png](Untitled 016.png)</p>
 <ul>
 <li>至此实验内容已全部完毕，以下将补充一些操作</li>
 <li>关于关闭hdfs服务：通过stop-all.sh指令进行操作</li>
 </ul>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2017.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2017.png"></p>
+<p>![Untitled 17.png](Untitled 017.png)</p>
 <h2 id="实验结果与分析："><a href="#实验结果与分析：" class="headerlink" title="实验结果与分析："></a>实验结果与分析：</h2><h3 id="实验结果："><a href="#实验结果：" class="headerlink" title="实验结果："></a>实验结果：</h3><p>HDFS采用了主从（Master/Slave）结构模型，一个HDFS集群是由一个NameNode和若干个DataNode组成的。其中NameNode作为主服务器，管理文件系统的命名空间和客户端对文件的访问操作；集群中的DataNode管理存储的数据。</p>
 <p>在这次实验中，通过用jps指令查看主服务器和集群中的结点：</p>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2018.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2018.png"></p>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2019.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2019.png"></p>
+<p>![Untitled 18.png](Untitled 018.png)</p>
+<p>![Untitled 19.png](Untitled 019.png)</p>
 <p>可以验证这一点</p>
 <p>最后 可以成功将数据转入hdfs系统中</p>
-<p><img src= "/img/loading.gif" data-src="/2020/12/15/Sqoop/Untitled%2020.png" alt="sqoop%E7%9A%84%E4%BD%BF%E7%94%A8%205b9a67b3b79447b097340c164d0bcccb/Untitled%2020.png"></p>
+<p>![Untitled 20.png](Untitled 020.png)</p>
 <h3 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h3><p>数据库安装一切顺利，但是在安装hdfs系统时开始遇到了阻碍。一开始我把密码设置成了“!Pc123456”结果出现了无法识别的问题。后来经过查询，得知!需要加上转义字符\才能被正确识别。</p>
 <p>接着在root模式下运行了start-all.sh，根据查资料所得，可能是用户的不一致导致master无法和slave机相连。Jps查询时也发现有结点无法连接。后来经过一番挣扎与努力，做了包括查看内存空间、格式化datanode、退出安全模式的尝试，终究无法做到。后来经过微信群的讨论才知道，可能就是在我格式化datanode的时候导致了cluster-id的丢失，导致从机的节点无法建立。</p>
 <p>最后干脆重启实验。吸取了之前的教训，在半小时中完成了实验。</p>
